@@ -1,6 +1,10 @@
 /*
-实验九 8: 编写一个函数过程，解一元二次方程ax? + bx + c = 0。
-*/
+ * 实验九 8：编写函数，求一元二次方程 ax²+bx+c=0 的实根。
+ *
+ * 知识点：二次方程判别式、返回状态、指针输出参数。
+ * 解题思路：用返回值报告实根个数，用两个地址把实际根交还给调用者。
+ * 代码逻辑：读入系数，处理一次方程及判别式的各分支，按返回状态选择输出。
+ */
 #include <stdio.h>
 #include <math.h>
 
@@ -39,9 +43,13 @@ int main(void)
 {
     double a, b, c, x1, x2;
     printf("请输入a, b, c: ");
-    scanf("%lf %lf %lf", &a, &b, &c);
+    if (scanf("%lf %lf %lf", &a, &b, &c) != 3)
+    {
+        fputs("请输入三个系数。\n", stderr);
+        return 1;
+    }
     
-    int result = solve_quadratic(a, b, c, &x1, &x2);
+    int result = solve_quadratic(a, b, c, &x1, &x2); // 传递变量地址，让函数通过指针写回根。
     
     switch (result)
     {

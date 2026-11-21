@@ -1,6 +1,10 @@
 /*
-实验八 4: 有一个m×n矩阵，各元素值由随机数产生，将矩阵增加一列，求每一行的元素值之和，并将和放入增加列。
-*/
+ * 实验八 4: 有一个m×n矩阵，各元素值由随机数产生，将矩阵增加一列，求每一行的元素值之和，并将和放入增加列。
+ *
+ * 知识点：二维数组、行累加、额外列的下标。
+ * 解题思路：分配矩阵时预留一列，每处理一行就重新开始计算该行的和。
+ * 代码逻辑：校验行列数，生成随机值并累加；每行的和写入下标 n 的额外列，再一起打印。
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -14,12 +18,18 @@ int main(void)
     int matrix[MAX_ROWS][MAX_COLS + 1]; // 额外一列存放和
     
     printf("请输入行数m: ");
-    scanf("%d", &m);
+    if (scanf("%d", &m) != 1 || m < 1 || m > MAX_ROWS)
+    {
+        fprintf(stderr, "行数必须是 1 到 %d 的整数。\n", MAX_ROWS);
+        return 1;
+    }
     printf("请输入列数n: ");
-    scanf("%d", &n);
+    if (scanf("%d", &n) != 1 || n < 1 || n > MAX_COLS)
+    {
+        fprintf(stderr, "列数必须是 1 到 %d 的整数。\n", MAX_COLS);
+        return 1;
+    }
     
-    if (m > MAX_ROWS) m = MAX_ROWS;
-    if (n > MAX_COLS) n = MAX_COLS;
     
     srand(time(NULL));
     
@@ -32,7 +42,7 @@ int main(void)
             matrix[i][j] = rand() % 100; // 0-99
             row_sum += matrix[i][j];
         }
-        matrix[i][n] = row_sum; // 最后一列存放和
+        matrix[i][n] = row_sum; // 原列下标为 0 到 n-1，额外列的下标为 n。
     }
     
     // 输出结果

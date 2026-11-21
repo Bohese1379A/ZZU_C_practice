@@ -1,33 +1,26 @@
 /*
-实验九 4: 编写函数过程求斐波那契数列前n项和FS及平均值V。
-*/
+ * 实验九 4: 编写函数过程求斐波那契数列前n项和FS及平均值V。
+ *
+ * 知识点：滚动递推、一次累加、用指针返回多个结果。
+ * 解题思路：一次生成斐波那契数列并累加，最后用总和除以项数。
+ * 代码逻辑：用前一项与当前项推进循环，通过 fs 和 v 两个指针写回结果。
+ */
 #include <stdio.h>
 
-long long fibonacci(int n)
+// n 为项数；调用者通过两个指针接收前 n 项和与平均值。
+static void fibonacci_sum_avg(int n, long long *fs, double *v)
 {
-    if (n <= 0)
-        return 0;
-    if (n == 1 || n == 2)
-        return 1;
-    
-    long long a = 1, b = 1, c;
-    for (int i = 3; i <= n; i++)
-    {
-        c = a + b;
-        a = b;
-        b = c;
-    }
-    return b;
-}
-
-void fibonacci_sum_avg(int n, long long *fs, double *v)
-{
+    long long previous = 0;
+    long long current = 1;
     *fs = 0;
-    for (int i = 1; i <= n; i++)
+    for (int i = 0; i < n; ++i)
     {
-        *fs += fibonacci(i);
+        *fs += current;
+        long long next = previous + current; // 保留滚动的两项，避免重新求每一项。
+        previous = current;
+        current = next;
     }
-    *v = (double)*fs / n;
+    *v = (double)*fs / n; // 先转为浮点数，再除以项数，保留平均值的小数。
 }
 
 int main(void)
