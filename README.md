@@ -7,7 +7,7 @@
 | 路径 | 内容 |
 | --- | --- |
 | [`ZZU_C_Experiment/`](./ZZU_C_Experiment) | C 源码，按实验编号分目录。`C_Experiment_1/1_1.c` 表示实验一第 1 题。 |
-| [`ZZU_C_result/`](./ZZU_C_result) | 已编译的 Windows `.exe` 文件，按同样的实验编号查找。 |
+| [`ZZU_C_result/`](./ZZU_C_result) | 历史编译产物。最新版 Windows 程序请见[下载版本包](#下载版本包)。 |
 | [`C语言实验.pdf`](./C语言实验.pdf) 和 [`C语言实验.docx`](./C语言实验.docx) | 实验资料。 |
 
 ## 从源码编译一道题
@@ -23,4 +23,4 @@ gcc -std=c11 -Wall -Wextra .\ZZU_C_Experiment\C_Experiment_1\1_1.c -o "$env:TEMP
 
 ## 下载版本包
 
-[Releases](https://github.com/Bohese1379A/ZZU_C_practice/releases) 提供已发布的 ZIP 下载包。要查看和修改当前源码，请使用仓库的 **Code** 页面。
+在 [Releases 最新发布页](https://github.com/Bohese1379A/ZZU_C_practice/releases/latest) 展开 **Assets**，下载文件名以 `-windows.zip` 结尾的 Windows 版压缩包。解压后，在 `ZZU_C_result/` 中按实验编号找到对应的 `.exe`。
