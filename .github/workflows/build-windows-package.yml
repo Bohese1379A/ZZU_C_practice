@@ -1,0 +1,75 @@
+name: Build Windows lab package
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'ZZU_C_Experiment/**'
+      - '.github/workflows/build-windows-package.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  build-windows-package:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Install the Windows compiler
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc-mingw-w64-x86-64
+
+      - name: Compile exercises and create a ZIP
+        env:
+          CC: x86_64-w64-mingw32-gcc
+        run: |
+          python3 - <<'PY'
+          import os
+          from pathlib import Path
+          import shutil
+          import subprocess
+
+          source_dir = Path('ZZU_C_Experiment')
+          sources = sorted(source_dir.rglob('*.c'))
+          if not sources:
+              raise SystemExit('No lab source files found.')
+
+          build_dir = Path('build/windows-package')
+          package_dir = build_dir / 'contents'
+          shutil.copytree(source_dir, package_dir / source_dir)
+
+          for source in sources:
+              try:
+                  source.read_text(encoding='utf-8')
+                  input_encoding = 'UTF-8'
+              except UnicodeDecodeError:
+                  input_encoding = 'GB18030'
+
+              program = package_dir / 'ZZU_C_result' / source.relative_to(source_dir).with_suffix('.exe')
+              program.parent.mkdir(parents=True, exist_ok=True)
+              print(f'Compiling {source}', flush=True)
+              subprocess.run([
+                  os.environ['CC'], '-std=c11', '-O2', '-static',
+                  f'-finput-charset={input_encoding}', '-fexec-charset=GBK',
+                  str(source), '-o', str(program), '-lm',
+              ], check=True)
+
+          commit = os.environ['GITHUB_SHA'][:7]
+          archive = shutil.make_archive(
+              str(build_dir / f'ZZU_C_practice-{commit}-windows'),
+              'zip', root_dir=package_dir,
+          )
+          print(f'Packaged {len(sources)} Windows programs: {archive}')
+          PY
+
+      - name: Upload the Windows ZIP
+        uses: actions/upload-artifact@v7
+        with:
+          path: build/windows-package/*-windows.zip
+          if-no-files-found: error
+          archive: false
