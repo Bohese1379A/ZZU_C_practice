@@ -1,58 +1,66 @@
 /*
-ʵ��� 8: ��дһ���������̣���һԪ���η���ax? + bx + c = 0��
-*/
+ * 实验九 8：编写函数，求一元二次方程 ax²+bx+c=0 的实根。
+ *
+ * 知识点：二次方程判别式、返回状态、指针输出参数。
+ * 解题思路：用返回值报告实根个数，用两个地址把实际根交还给调用者。
+ * 代码逻辑：读入系数，处理一次方程及判别式的各分支，按返回状态选择输出。
+ */
 #include <stdio.h>
 #include <math.h>
 
-// ����ֵ��0��ʾ��ʵ����1��ʾһ��ʵ����2��ʾ����ʵ��
+// 返回值：0表示无实根，1表示一个实根，2表示两个实根
 int solve_quadratic(double a, double b, double c, double *x1, double *x2)
 {
     if (a == 0)
     {
         if (b == 0)
-            return 0; // ���Ƿ���
+            return 0; // 不是方程
         *x1 = -c / b;
         *x2 = *x1;
-        return 1; // һ�η���
+        return 1; // 一次方程
     }
     
     double discriminant = b * b - 4 * a * c;
     
     if (discriminant < 0)
-        return 0; // ��ʵ��
+        return 0; // 无实根
     else if (discriminant == 0)
     {
         *x1 = -b / (2 * a);
         *x2 = *x1;
-        return 1; // һ��ʵ��
+        return 1; // 一个实根
     }
     else
     {
         double sqrt_d = sqrt(discriminant);
         *x1 = (-b + sqrt_d) / (2 * a);
         *x2 = (-b - sqrt_d) / (2 * a);
-        return 2; // ����ʵ��
+        return 2; // 两个实根
     }
 }
 
 int main(void)
 {
     double a, b, c, x1, x2;
-    printf("������a, b, c: ");
-    scanf("%lf %lf %lf", &a, &b, &c);
+    printf("请输入a, b, c: ");
+    if (scanf("%lf %lf %lf", &a, &b, &c) != 3)
+    {
+        fputs("请输入三个系数。\n", stderr);
+        return 1;
+    }
     
-    int result = solve_quadratic(a, b, c, &x1, &x2);
+    int result = solve_quadratic(a, b, c, &x1, &x2); // 传递变量地址，让函数通过指针写回根。
     
     switch (result)
     {
         case 0:
-            printf("��ʵ��\n");
+            printf("无实根\n");
             break;
         case 1:
-            printf("һ��ʵ��: x = %.6f\n", x1);
+            printf("一个实根: x = %.6f\n", x1);
             break;
         case 2:
-            printf("����ʵ��: x1 = %.6f, x2 = %.6f\n", x1, x2);
+            printf("两个实根: x1 = %.6f, x2 = %.6f\n", x1, x2);
             break;
     }
     

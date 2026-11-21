@@ -1,6 +1,10 @@
 /*
-实验八 5: 有一个m×n矩阵，找出最大元素值及最大元素所在的行、列位置。
-*/
+ * 实验八 5: 有一个m×n矩阵，找出最大元素值及最大元素所在的行、列位置。
+ *
+ * 知识点：二维数组、strtol、指针传参、极值定位。
+ * 解题思路：先取得合法行列数，再用矩阵首项初始化最大值。
+ * 代码逻辑：生成并打印矩阵，遍历更新最大值及坐标，输出时把从零开始的下标转换成行列编号。
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -16,16 +20,16 @@ static int read_integer(int *result)
     char text[32];
     char *end;
 
-    if (scanf("%31s", text) != 1 || strlen(text) == sizeof text - 1)
+    if (scanf("%31s", text) != 1 || strlen(text) == sizeof text - 1) // 预留结束符；拒绝读满的令牌，以防输入被截断。
         return 0;
 
     errno = 0;
-    long value = strtol(text, &end, 10);
+    long value = strtol(text, &end, 10); // end 记录数字解析停止的位置，可用来发现多余字符。
     if (errno == ERANGE || end == text || *end != '\0' ||
         value < INT_MIN || value > INT_MAX)
         return 0;
 
-    *result = (int)value;
+    *result = (int)value; // 通过调用者传入的地址，在校验成功后写回整数。
     return 1;
 }
 
@@ -35,7 +39,7 @@ int main(void)
     int matrix[MAX_ROWS][MAX_COLS];
     int max_val, max_row, max_col;
     
-        printf("请输入行数m: ");
+    printf("请输入行数m: ");
     if (!read_integer(&m) || m < 1 || m > MAX_ROWS)
     {
         fprintf(stderr, "行数必须是 1 到 %d 的整数。\n", MAX_ROWS);
@@ -72,7 +76,7 @@ int main(void)
     {
         for (int j = 0; j < n; j++)
         {
-            if (matrix[i][j] > max_val)
+            if (matrix[i][j] > max_val) // 只在严格变大时更新，并列最大值保留首次出现的位置。
             {
                 max_val = matrix[i][j];
                 max_row = i;
