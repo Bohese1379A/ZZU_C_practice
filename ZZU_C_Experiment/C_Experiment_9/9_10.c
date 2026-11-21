@@ -1,5 +1,5 @@
 /*
-ÊµÑé¾Å 10: ±àĞ´º¯Êı³ÌĞò£¬¼ÆËãÕıÕûÊın1?n2Ö®¼äËùÓĞËØÊıÖ®ºÍ¡£
+å®éªŒä¹ 10: ç¼–å†™å‡½æ•°ç¨‹åºï¼Œè®¡ç®—æ­£æ•´æ•°n1?n2ä¹‹é—´æ‰€æœ‰ç´ æ•°ä¹‹å’Œã€‚
 */
 #include <stdio.h>
 #include <math.h>
@@ -34,18 +34,18 @@ long long sum_primes(int n1, int n2)
 int main(void)
 {
     int n1, n2;
-    printf("ÇëÊäÈën1ºÍn2: ");
+    printf("è¯·è¾“å…¥n1å’Œn2: ");
     scanf("%d %d", &n1, &n2);
-    
+
     if (n1 > n2)
     {
         int temp = n1;
         n1 = n2;
         n2 = temp;
     }
-    
+
     long long result = sum_primes(n1, n2);
-    printf("%dµ½%dÖ®¼äËùÓĞËØÊıÖ®ºÍ: %lld\n", n1, n2, result);
-    
+    printf("%dåˆ°%dä¹‹é—´æ‰€æœ‰ç´ æ•°ä¹‹å’Œ: %lld\n", n1, n2, result);
+
     return 0;
 }

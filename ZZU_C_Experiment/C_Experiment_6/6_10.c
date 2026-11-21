@@ -1,5 +1,5 @@
 /*
-ÊµÑéÁù 8: Çó100ÖÁ999Ö®¼äµÄ×î´óµÄÈý¸öËØÊý¡£
+å®žéªŒå…­ 8: æ±‚100è‡³999ä¹‹é—´çš„æœ€å¤§çš„ä¸‰ä¸ªç´ æ•°ã€‚
 */
 #include <stdio.h>
 #include <math.h>
@@ -24,7 +24,7 @@ int main(void)
 {
     int primes[3] = {0};
     int count = 0;
-    
+
     for (int n = 999; n >= 100 && count < 3; n--)
     {
         if (is_prime(n))
@@ -33,7 +33,7 @@ int main(void)
             count++;
         }
     }
-    
-    printf("100-999Ö®¼äµÄ×î´óÈý¸öËØÊý£º%d, %d, %d\n", primes[0], primes[1], primes[2]);
+
+    printf("100-999ä¹‹é—´çš„æœ€å¤§ä¸‰ä¸ªç´ æ•°ï¼š%d, %d, %d\n", primes[0], primes[1], primes[2]);
     return 0;
 }

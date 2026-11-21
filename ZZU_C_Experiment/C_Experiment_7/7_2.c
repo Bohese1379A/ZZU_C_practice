@@ -1,5 +1,5 @@
 /*
-ÊµÑéÆß 2: Ëæ»ú²úÉú20¸öÑ§ÉúµÄ³É¼¨£¬Í³¼Æ¸÷·ÖÊı¶ÎÈËÊı¡£
+å®éªŒä¸ƒ 2: éšæœºäº§ç”Ÿ20ä¸ªå­¦ç”Ÿçš„æˆç»©ï¼Œç»Ÿè®¡å„åˆ†æ•°æ®µäººæ•°ã€‚
 */
 #include <stdio.h>
 #include <stdlib.h>
@@ -9,15 +9,15 @@ int main(void)
 {
     int scores[20];
     int counts[5] = {0}; // 0-59, 60-69, 70-79, 80-89, 90-100
-    
+
     srand(time(NULL));
-    
-    printf("Ñ§Éú³É¼¨£º");
+
+    printf("å­¦ç”Ÿæˆç»©ï¼š");
     for (int i = 0; i < 20; i++)
     {
         scores[i] = rand() % 101; // 0-100
         printf("%d ", scores[i]);
-        
+
         if (scores[i] < 60)
             counts[0]++;
         else if (scores[i] < 70)
@@ -30,13 +30,13 @@ int main(void)
             counts[4]++;
     }
     printf("\n");
-    
-    printf("¸÷·ÖÊı¶ÎÈËÊı£º\n");
+
+    printf("å„åˆ†æ•°æ®µäººæ•°ï¼š\n");
     printf("0-59: %d\n", counts[0]);
     printf("60-69: %d\n", counts[1]);
     printf("70-79: %d\n", counts[2]);
     printf("80-89: %d\n", counts[3]);
     printf("90-100: %d\n", counts[4]);
-    
+
     return 0;
 }

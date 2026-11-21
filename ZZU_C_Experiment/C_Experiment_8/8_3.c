@@ -1,5 +1,5 @@
 /*
-ÊµÑé°Ë 3: ½«·½Õóm(n,n)¶Ô½ÇÏßÉÏµÄÔªËØÖÃÎª1£¬ÆäÓàÔªËØÖÃÎª0¡£
+å®žéªŒå…« 3: å°†æ–¹é˜µm(n,n)å¯¹è§’çº¿ä¸Šçš„å…ƒç´ ç½®ä¸º1ï¼Œå…¶ä½™å…ƒç´ ç½®ä¸º0ã€‚
 */
 #include <stdio.h>
 
@@ -8,27 +8,27 @@
 int main(void)
 {
     int n, matrix[MAX_SIZE][MAX_SIZE];
-    
-    printf("ÇëÊäÈën (1-%d): ", MAX_SIZE);
+
+    printf("è¯·è¾“å…¥n (1-%d): ", MAX_SIZE);
     scanf("%d", &n);
-    
+
     if (n > MAX_SIZE)
         n = MAX_SIZE;
-    
-    // ³õÊ¼»¯¾ØÕó
+
+    // åˆå§‹åŒ–çŸ©é˜µ
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < n; j++)
         {
-            if (i == j) // Ö÷¶Ô½ÇÏß
+            if (i == j) // ä¸»å¯¹è§’çº¿
                 matrix[i][j] = 1;
             else
                 matrix[i][j] = 0;
         }
     }
-    
-    // Êä³ö½á¹û
-    printf("%d¡Á%dµ¥Î»¾ØÕó£º\n", n, n);
+
+    // è¾“å‡ºç»“æžœ
+    printf("%dÃ—%då•ä½çŸ©é˜µï¼š\n", n, n);
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < n; j++)
@@ -37,6 +37,6 @@ int main(void)
         }
         printf("\n");
     }
-    
+
     return 0;
 }

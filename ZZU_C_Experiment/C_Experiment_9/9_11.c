@@ -1,5 +1,5 @@
 /*
-ÊµÑé¾Å 11: ÓÃµİ¹é·½·¨ÇóFibonacciÊıÁĞÇ°20ÏîÒÔ¼°Õâ20ÏîµÄºÍ¡£
+å®éªŒä¹ 11: ç”¨é€’å½’æ–¹æ³•æ±‚Fibonacciæ•°åˆ—å‰20é¡¹ä»¥åŠè¿™20é¡¹çš„å’Œã€‚
 */
 #include <stdio.h>
 
@@ -25,8 +25,8 @@ int main(void)
 {
     int n = 20;
     long long sum = 0;
-    
-    printf("ì³²¨ÄÇÆõÊıÁĞÇ°20Ïî£º\n");
+
+    printf("æ–æ³¢é‚£å¥‘æ•°åˆ—å‰20é¡¹ï¼š\n");
     for (int i = 1; i <= n; i++)
     {
         long long term = fibonacci(i);
@@ -34,8 +34,8 @@ int main(void)
         sum += term;
     }
     printf("\n");
-    
-    printf("Ç°20ÏîµÄºÍ: %lld\n", sum);
-    
+
+    printf("å‰20é¡¹çš„å’Œ: %lld\n", sum);
+
     return 0;
 }

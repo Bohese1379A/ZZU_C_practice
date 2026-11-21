@@ -1,5 +1,5 @@
 /*
-ÊµÑé¾Å 6: ±àĞ´Ò»¸öº¯Êı¹ı³Ì£¬ÇóÈÎÒâ×Ö·û´®CHÖĞÊı×Ö×Ö·ûµÄ¸öÊı¡£
+å®éªŒä¹ 6: ç¼–å†™ä¸€ä¸ªå‡½æ•°è¿‡ç¨‹ï¼Œæ±‚ä»»æ„å­—ç¬¦ä¸²CHä¸­æ•°å­—å­—ç¬¦çš„ä¸ªæ•°ã€‚
 */
 #include <stdio.h>
 #include <ctype.h>
@@ -19,11 +19,11 @@ int count_digits(const char *ch)
 int main(void)
 {
     char ch[100];
-    printf("ÇëÊäÈëÒ»¸ö×Ö·û´®: ");
+    printf("è¯·è¾“å…¥ä¸€ä¸ªå­—ç¬¦ä¸²: ");
     scanf("%s", ch);
-    
+
     int result = count_digits(ch);
-    printf("Êı×Ö×Ö·ûµÄ¸öÊı: %d\n", result);
-    
+    printf("æ•°å­—å­—ç¬¦çš„ä¸ªæ•°: %d\n", result);
+
     return 0;
 }

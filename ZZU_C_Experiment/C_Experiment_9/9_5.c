@@ -1,5 +1,5 @@
 /*
-ÊµÑé¾Å 5: ÓÃÌİĞÎ·¨ÇóÒ»Ôªº¯Êıf(x)ÔÚ[a,b]ÉÏµÄ»ı·Ö½üËÆÖµ¡£
+å®éªŒä¹ 5: ç”¨æ¢¯å½¢æ³•æ±‚ä¸€å…ƒå‡½æ•°f(x)åœ¨[a,b]ä¸Šçš„ç§¯åˆ†è¿‘ä¼¼å€¼ã€‚
 */
 #include <stdio.h>
 #include <math.h>
@@ -13,13 +13,13 @@ double trapezoidal_integration(double a, double b, int n)
 {
     double h = (b - a) / n;
     double sum = 0.5 * (f(a) + f(b));
-    
+
     for (int i = 1; i < n; i++)
     {
         double x = a + i * h;
         sum += f(x);
     }
-    
+
     return h * sum;
 }
 
@@ -29,12 +29,12 @@ int main(void)
     double b = 3.14159;
     int n1 = 10;
     int n2 = 20;
-    
+
     double s1 = trapezoidal_integration(a, b, n1);
     double s2 = trapezoidal_integration(a, b, n2);
-    
-    printf("n=10Ê±µÄ»ı·Ö½üËÆÖµs1: %.3f\n", s1);
-    printf("n=20Ê±µÄ»ı·Ö½üËÆÖµs2: %.3f\n", s2);
-    
+
+    printf("n=10æ—¶çš„ç§¯åˆ†è¿‘ä¼¼å€¼s1: %.3f\n", s1);
+    printf("n=20æ—¶çš„ç§¯åˆ†è¿‘ä¼¼å€¼s2: %.3f\n", s2);
+
     return 0;
 }

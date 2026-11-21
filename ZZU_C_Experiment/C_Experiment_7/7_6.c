@@ -1,5 +1,5 @@
 /*
-ÊµÑéÆß 6: Çó³önÃûÑ§ÉúÄ³Ò»ÃÅ¿Î³ÌÖĞµÄ×î¸ß³É¼¨¡¢×îµÍ³É¼¨ºÍ¸ßÓÚÆ½¾ù³É¼¨µÄÈËÊı¡£
+å®éªŒä¸ƒ 6: æ±‚å‡ºnåå­¦ç”ŸæŸä¸€é—¨è¯¾ç¨‹ä¸­çš„æœ€é«˜æˆç»©ã€æœ€ä½æˆç»©å’Œé«˜äºå¹³å‡æˆç»©çš„äººæ•°ã€‚
 */
 #include <stdio.h>
 #define MAX_SIZE 100
@@ -9,20 +9,20 @@ int main(void)
     int scores[MAX_SIZE];
     int n, max, min, count = 0;
     double sum = 0, avg;
-    
-    printf("ÇëÊäÈëÑ§ÉúÈËÊın: ");
+
+    printf("è¯·è¾“å…¥å­¦ç”Ÿäººæ•°n: ");
     scanf("%d", &n);
-    
+
     if (n > MAX_SIZE)
         n = MAX_SIZE;
-    
-    printf("ÇëÊäÈë%d¸ö³É¼¨£º", n);
+
+    printf("è¯·è¾“å…¥%dä¸ªæˆç»©ï¼š", n);
     for (int i = 0; i < n; i++)
     {
         scanf("%d", &scores[i]);
         sum += scores[i];
     }
-    
+
     max = min = scores[0];
     for (int i = 1; i < n; i++)
     {
@@ -31,18 +31,18 @@ int main(void)
         if (scores[i] < min)
             min = scores[i];
     }
-    
+
     avg = sum / n;
     for (int i = 0; i < n; i++)
     {
         if (scores[i] > avg)
             count++;
     }
-    
-    printf("×î¸ß³É¼¨£º%d\n", max);
-    printf("×îµÍ³É¼¨£º%d\n", min);
-    printf("Æ½¾ù³É¼¨£º%.2f\n", avg);
-    printf("¸ßÓÚÆ½¾ù³É¼¨µÄÈËÊı£º%d\n", count);
-    
+
+    printf("æœ€é«˜æˆç»©ï¼š%d\n", max);
+    printf("æœ€ä½æˆç»©ï¼š%d\n", min);
+    printf("å¹³å‡æˆç»©ï¼š%.2f\n", avg);
+    printf("é«˜äºå¹³å‡æˆç»©çš„äººæ•°ï¼š%d\n", count);
+
     return 0;
 }

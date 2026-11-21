@@ -1,5 +1,5 @@
 /*
-ʵ���� 5: ��� Fibonacci ���е�ǰ20������
+实验五 5: 求出 Fibonacci 数列的前20项并输出。
 */
 #include <stdio.h>
 

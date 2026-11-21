@@ -1,5 +1,5 @@
 /*
-ÊµÑéÊ®Ò» 2: ÊäÈën¸öµ¥¾«¶ÈÊı´æÈëÒ»Î¬Êı×é£¬ÓÃÖ¸Õë±äÁ¿´¦ÀíÊı×éÔªËØµÄ·½Ê½½«ÆäÄæĞò´æ·ÅºóÊä³ö¡£
+å®éªŒåä¸€ 2: è¾“å…¥nä¸ªå•ç²¾åº¦æ•°å­˜å…¥ä¸€ç»´æ•°ç»„ï¼Œç”¨æŒ‡é’ˆå˜é‡å¤„ç†æ•°ç»„å…ƒç´ çš„æ–¹å¼å°†å…¶é€†åºå­˜æ”¾åè¾“å‡ºã€‚
 */
 #include <stdio.h>
 
@@ -9,7 +9,7 @@ void reverse_array(float *arr, int n)
 {
     float *start = arr;
     float *end = arr + n - 1;
-    
+
     while (start < end)
     {
         float temp = *start;
@@ -24,34 +24,34 @@ int main(void)
 {
     float arr[MAX_SIZE];
     int n;
-    
-    printf("ÇëÊäÈën (²»´óÓÚ20): ");
+
+    printf("è¯·è¾“å…¥n (ä¸å¤§äº20): ");
     scanf("%d", &n);
-    
+
     if (n > MAX_SIZE)
         n = MAX_SIZE;
-    
-    printf("ÇëÊäÈë%d¸öµ¥¾«¶ÈÊı: ", n);
+
+    printf("è¯·è¾“å…¥%dä¸ªå•ç²¾åº¦æ•°: ", n);
     for (int i = 0; i < n; i++)
     {
         scanf("%f", &arr[i]);
     }
-    
-    printf("Ô­Ê¼Êı×é: ");
+
+    printf("åŸå§‹æ•°ç»„: ");
     for (int i = 0; i < n; i++)
     {
         printf("%.2f ", arr[i]);
     }
     printf("\n");
-    
+
     reverse_array(arr, n);
-    
-    printf("ÄæĞòºó: ");
+
+    printf("é€†åºå: ");
     for (int i = 0; i < n; i++)
     {
         printf("%.2f ", arr[i]);
     }
     printf("\n");
-    
+
     return 0;
 }

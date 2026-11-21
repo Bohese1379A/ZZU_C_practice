@@ -1,5 +1,5 @@
 /*
-ÊµÑé°Ë 5: ÓÐÒ»¸öm¡Án¾ØÕó£¬ÕÒ³ö×î´óÔªËØÖµ¼°×î´óÔªËØËùÔÚµÄÐÐ¡¢ÁÐÎ»ÖÃ¡£
+å®žéªŒå…« 5: æœ‰ä¸€ä¸ªmÃ—nçŸ©é˜µï¼Œæ‰¾å‡ºæœ€å¤§å…ƒç´ å€¼åŠæœ€å¤§å…ƒç´ æ‰€åœ¨çš„è¡Œã€åˆ—ä½ç½®ã€‚
 */
 #include <stdio.h>
 #include <stdlib.h>
@@ -13,19 +13,19 @@ int main(void)
     int m, n;
     int matrix[MAX_ROWS][MAX_COLS];
     int max_val, max_row, max_col;
-    
-    printf("ÇëÊäÈëÐÐÊým: ");
+
+    printf("è¯·è¾“å…¥è¡Œæ•°m: ");
     scanf("%d", &m);
-    printf("ÇëÊäÈëÁÐÊýn: ");
+    printf("è¯·è¾“å…¥åˆ—æ•°n: ");
     scanf("%d", &n);
-    
+
     if (m > MAX_ROWS) m = MAX_ROWS;
     if (n > MAX_COLS) n = MAX_COLS;
-    
+
     srand(time(NULL));
-    
-    // Éú³ÉËæ»ú¾ØÕó
-    printf("Éú³ÉµÄ¾ØÕó£º\n");
+
+    // ç”ŸæˆéšæœºçŸ©é˜µ
+    printf("ç”Ÿæˆçš„çŸ©é˜µï¼š\n");
     for (int i = 0; i < m; i++)
     {
         for (int j = 0; j < n; j++)
@@ -35,12 +35,12 @@ int main(void)
         }
         printf("\n");
     }
-    
-    // ÕÒ³ö×î´óÖµ¼°ÆäÎ»ÖÃ
+
+    // æ‰¾å‡ºæœ€å¤§å€¼åŠå…¶ä½ç½®
     max_val = matrix[0][0];
     max_row = 0;
     max_col = 0;
-    
+
     for (int i = 0; i < m; i++)
     {
         for (int j = 0; j < n; j++)
@@ -53,9 +53,9 @@ int main(void)
             }
         }
     }
-    
-    printf("×î´óÔªËØÖµ£º%d\n", max_val);
-    printf("Î»ÖÃ£ºµÚ%dÐÐ£¬µÚ%dÁÐ\n", max_row + 1, max_col + 1);
-    
+
+    printf("æœ€å¤§å…ƒç´ å€¼ï¼š%d\n", max_val);
+    printf("ä½ç½®ï¼šç¬¬%dè¡Œï¼Œç¬¬%dåˆ—\n", max_row + 1, max_col + 1);
+
     return 0;
 }

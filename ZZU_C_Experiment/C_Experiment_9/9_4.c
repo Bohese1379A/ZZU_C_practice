@@ -1,5 +1,5 @@
 /*
-ÊµÑé¾Å 4: ±àĞ´º¯Êı¹ı³ÌÇóì³²¨ÄÇÆõÊıÁĞÇ°nÏîºÍFS¼°Æ½¾ùÖµV¡£
+å®éªŒä¹ 4: ç¼–å†™å‡½æ•°è¿‡ç¨‹æ±‚æ–æ³¢é‚£å¥‘æ•°åˆ—å‰né¡¹å’ŒFSåŠå¹³å‡å€¼Vã€‚
 */
 #include <stdio.h>
 
@@ -9,7 +9,7 @@ long long fibonacci(int n)
         return 0;
     if (n == 1 || n == 2)
         return 1;
-    
+
     long long a = 1, b = 1, c;
     for (int i = 3; i <= n; i++)
     {
@@ -35,11 +35,11 @@ int main(void)
     int n = 20;
     long long fs;
     double v;
-    
+
     fibonacci_sum_avg(n, &fs, &v);
-    
-    printf("ì³²¨ÄÇÆõÊıÁĞÇ°%dÏîºÍFS: %lld\n", n, fs);
-    printf("Æ½¾ùÖµV: %.6f\n", v);
-    
+
+    printf("æ–æ³¢é‚£å¥‘æ•°åˆ—å‰%dé¡¹å’ŒFS: %lld\n", n, fs);
+    printf("å¹³å‡å€¼V: %.6f\n", v);
+
     return 0;
 }

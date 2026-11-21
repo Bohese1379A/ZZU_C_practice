@@ -1,5 +1,5 @@
 /*
-ʵ���� 5: �������n��[-10,10]��Χ�ڵ��������ɾ����������ͬ������ֻʣһ����
+实验七 5: 随机产生n个[-10,10]范围内的随机数，删除数组中相同的数，只剩一个。
 */
 #include <stdio.h>
 #include <stdlib.h>
@@ -12,24 +12,24 @@ int main(void)
     int arr[MAX_SIZE];
     int unique_arr[MAX_SIZE];
     int n, unique_count = 0;
-    
-    printf("������n: ");
+
+    printf("请输入n: ");
     scanf("%d", &n);
-    
+
     if (n > MAX_SIZE)
         n = MAX_SIZE;
-    
+
     srand(time(NULL));
-    
-    printf("ԭʼ���飺");
+
+    printf("原始数组：");
     for (int i = 0; i < n; i++)
     {
-        arr[i] = rand() % 21 - 10; // -10 �� 10
+        arr[i] = rand() % 21 - 10; // -10 到 10
         printf("%d ", arr[i]);
     }
     printf("\n");
-    
-    // ȥ��
+
+    // 去重
     for (int i = 0; i < n; i++)
     {
         int exists = 0;
@@ -47,13 +47,13 @@ int main(void)
             unique_count++;
         }
     }
-    
-    printf("ȥ�غ�");
+
+    printf("去重后：");
     for (int i = 0; i < unique_count; i++)
     {
         printf("%d ", unique_arr[i]);
     }
     printf("\n");
-    
+
     return 0;
 }

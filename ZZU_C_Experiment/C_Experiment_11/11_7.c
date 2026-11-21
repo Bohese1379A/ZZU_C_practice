@@ -1,5 +1,5 @@
 /*
-ÊµÑéÊ®Ò» 7: ±àĞ´Ò»¸ö³ÌĞò¼ÆËãÒ»¸ö×Ö·û´®µÄ³¤¶È¡£
+å®éªŒåä¸€ 7: ç¼–å†™ä¸€ä¸ªç¨‹åºè®¡ç®—ä¸€ä¸ªå­—ç¬¦ä¸²çš„é•¿åº¦ã€‚
 */
 #include <stdio.h>
 
@@ -17,11 +17,11 @@ int string_length(const char *str)
 int main(void)
 {
     char str[100];
-    printf("ÇëÊäÈëÒ»¸ö×Ö·û´®: ");
+    printf("è¯·è¾“å…¥ä¸€ä¸ªå­—ç¬¦ä¸²: ");
     scanf("%s", str);
-    
+
     int len = string_length(str);
-    printf("×Ö·û´®³¤¶È: %d\n", len);
-    
+    printf("å­—ç¬¦ä¸²é•¿åº¦: %d\n", len);
+
     return 0;
 }

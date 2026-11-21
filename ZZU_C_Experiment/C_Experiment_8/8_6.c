@@ -1,34 +1,34 @@
 /*
-ʵ��� 6: ��n��������ÿλ�����п��ź�1���ֳܷɼ������¼ȡm�ˣ�ȷ��¼ȡ�����ߣ������¼ȡ�����Ŀ��źͳɼ���
+实验八 6: 有n名考生，每位考生有考号和1个总分成绩，如果录取m人，确定录取分数线，并输出录取考生的考号和成绩。
 */
 #include <stdio.h>
 
 #define MAX_STUDENTS 100
 
 struct Student {
-    int id;      // ����
-    int score;   // �ɼ�
+    int id;      // 考号
+    int score;   // 成绩
 };
 
 int main(void)
 {
     struct Student students[MAX_STUDENTS];
     int n, m;
-    
-    printf("�����뿼������n: ");
+
+    printf("请输入考生人数n: ");
     scanf("%d", &n);
-    
+
     if (n > MAX_STUDENTS)
         n = MAX_STUDENTS;
-    
-    // ���뿼����Ϣ
+
+    // 输入考生信息
     for (int i = 0; i < n; i++)
     {
-        printf("�������%d�������Ŀ��źͳɼ�: ", i + 1);
+        printf("请输入第%d个考生的考号和成绩: ", i + 1);
         scanf("%d %d", &students[i].id, &students[i].score);
     }
-    
-    // ���ɼ��Ӹߵ�������
+
+    // 按成绩从高到低排序
     for (int i = 0; i < n - 1; i++)
     {
         for (int j = 0; j < n - i - 1; j++)
@@ -41,23 +41,23 @@ int main(void)
             }
         }
     }
-    
-    printf("������¼ȡ����m: ");
+
+    printf("请输入录取人数m: ");
     scanf("%d", &m);
-    
+
     if (m > n)
         m = n;
-    
+
     int cutoff = 0;
     if (m > 0)
         cutoff = students[m - 1].score;
-    
-    printf("¼ȡ������: %d\n", cutoff);
-    printf("¼ȡ������Ϣ: \n");
+
+    printf("录取分数线: %d\n", cutoff);
+    printf("录取考生信息: \n");
     for (int i = 0; i < m; i++)
     {
-        printf("����: %d, �ɼ�: %d\n", students[i].id, students[i].score);
+        printf("考号: %d, 成绩: %d\n", students[i].id, students[i].score);
     }
-    
+
     return 0;
 }

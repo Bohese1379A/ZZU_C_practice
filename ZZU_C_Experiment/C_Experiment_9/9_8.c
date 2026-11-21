@@ -1,60 +1,60 @@
 /*
-ÊµÑé¾Å 8: ±àĞ´Ò»¸öº¯Êı¹ı³Ì£¬½âÒ»Ôª¶ş´Î·½³Ìax? + bx + c = 0¡£
+å®éªŒä¹ 8: ç¼–å†™ä¸€ä¸ªå‡½æ•°è¿‡ç¨‹ï¼Œè§£ä¸€å…ƒäºŒæ¬¡æ–¹ç¨‹ax? + bx + c = 0ã€‚
 */
 #include <stdio.h>
 #include <math.h>
 
-// ·µ»ØÖµ£º0±íÊ¾ÎŞÊµ¸ù£¬1±íÊ¾Ò»¸öÊµ¸ù£¬2±íÊ¾Á½¸öÊµ¸ù
+// è¿”å›å€¼ï¼š0è¡¨ç¤ºæ— å®æ ¹ï¼Œ1è¡¨ç¤ºä¸€ä¸ªå®æ ¹ï¼Œ2è¡¨ç¤ºä¸¤ä¸ªå®æ ¹
 int solve_quadratic(double a, double b, double c, double *x1, double *x2)
 {
     if (a == 0)
     {
         if (b == 0)
-            return 0; // ²»ÊÇ·½³Ì
+            return 0; // ä¸æ˜¯æ–¹ç¨‹
         *x1 = -c / b;
         *x2 = *x1;
-        return 1; // Ò»´Î·½³Ì
+        return 1; // ä¸€æ¬¡æ–¹ç¨‹
     }
-    
+
     double discriminant = b * b - 4 * a * c;
-    
+
     if (discriminant < 0)
-        return 0; // ÎŞÊµ¸ù
+        return 0; // æ— å®æ ¹
     else if (discriminant == 0)
     {
         *x1 = -b / (2 * a);
         *x2 = *x1;
-        return 1; // Ò»¸öÊµ¸ù
+        return 1; // ä¸€ä¸ªå®æ ¹
     }
     else
     {
         double sqrt_d = sqrt(discriminant);
         *x1 = (-b + sqrt_d) / (2 * a);
         *x2 = (-b - sqrt_d) / (2 * a);
-        return 2; // Á½¸öÊµ¸ù
+        return 2; // ä¸¤ä¸ªå®æ ¹
     }
 }
 
 int main(void)
 {
     double a, b, c, x1, x2;
-    printf("ÇëÊäÈëa, b, c: ");
+    printf("è¯·è¾“å…¥a, b, c: ");
     scanf("%lf %lf %lf", &a, &b, &c);
-    
+
     int result = solve_quadratic(a, b, c, &x1, &x2);
-    
+
     switch (result)
     {
         case 0:
-            printf("ÎŞÊµ¸ù\n");
+            printf("æ— å®æ ¹\n");
             break;
         case 1:
-            printf("Ò»¸öÊµ¸ù: x = %.6f\n", x1);
+            printf("ä¸€ä¸ªå®æ ¹: x = %.6f\n", x1);
             break;
         case 2:
-            printf("Á½¸öÊµ¸ù: x1 = %.6f, x2 = %.6f\n", x1, x2);
+            printf("ä¸¤ä¸ªå®æ ¹: x1 = %.6f, x2 = %.6f\n", x1, x2);
             break;
     }
-    
+
     return 0;
 }
