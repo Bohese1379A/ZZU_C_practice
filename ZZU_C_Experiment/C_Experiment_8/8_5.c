@@ -1,12 +1,33 @@
 /*
-ÊµÑé°Ë 5: ÓĞÒ»¸öm¡Án¾ØÕó£¬ÕÒ³ö×î´óÔªËØÖµ¼°×î´óÔªËØËùÔÚµÄĞĞ¡¢ÁĞÎ»ÖÃ¡£
+å®éªŒå…« 5: æœ‰ä¸€ä¸ªmÃ—nçŸ©é˜µï¼Œæ‰¾å‡ºæœ€å¤§å…ƒç´ å€¼åŠæœ€å¤§å…ƒç´ æ‰€åœ¨çš„è¡Œã€åˆ—ä½ç½®ã€‚
 */
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
+#include <limits.h>
+#include <errno.h>
 
 #define MAX_ROWS 10
 #define MAX_COLS 10
+
+static int read_integer(int *result)
+{
+    char text[32];
+    char *end;
+
+    if (scanf("%31s", text) != 1 || strlen(text) == sizeof text - 1)
+        return 0;
+
+    errno = 0;
+    long value = strtol(text, &end, 10);
+    if (errno == ERANGE || end == text || *end != '\0' ||
+        value < INT_MIN || value > INT_MAX)
+        return 0;
+
+    *result = (int)value;
+    return 1;
+}
 
 int main(void)
 {
@@ -14,18 +35,24 @@ int main(void)
     int matrix[MAX_ROWS][MAX_COLS];
     int max_val, max_row, max_col;
     
-    printf("ÇëÊäÈëĞĞÊım: ");
-    scanf("%d", &m);
-    printf("ÇëÊäÈëÁĞÊın: ");
-    scanf("%d", &n);
-    
-    if (m > MAX_ROWS) m = MAX_ROWS;
-    if (n > MAX_COLS) n = MAX_COLS;
+        printf("è¯·è¾“å…¥è¡Œæ•°m: ");
+    if (!read_integer(&m) || m < 1 || m > MAX_ROWS)
+    {
+        fprintf(stderr, "è¡Œæ•°å¿…é¡»æ˜¯ 1 åˆ° %d çš„æ•´æ•°ã€‚\n", MAX_ROWS);
+        return 1;
+    }
+
+    printf("è¯·è¾“å…¥åˆ—æ•°n: ");
+    if (!read_integer(&n) || n < 1 || n > MAX_COLS)
+    {
+        fprintf(stderr, "åˆ—æ•°å¿…é¡»æ˜¯ 1 åˆ° %d çš„æ•´æ•°ã€‚\n", MAX_COLS);
+        return 1;
+    }
     
     srand(time(NULL));
     
-    // Éú³ÉËæ»ú¾ØÕó
-    printf("Éú³ÉµÄ¾ØÕó£º\n");
+    // ç”ŸæˆéšæœºçŸ©é˜µ
+    printf("ç”Ÿæˆçš„çŸ©é˜µï¼š\n");
     for (int i = 0; i < m; i++)
     {
         for (int j = 0; j < n; j++)
@@ -36,7 +63,7 @@ int main(void)
         printf("\n");
     }
     
-    // ÕÒ³ö×î´óÖµ¼°ÆäÎ»ÖÃ
+    // æ‰¾å‡ºæœ€å¤§å€¼åŠå…¶ä½ç½®
     max_val = matrix[0][0];
     max_row = 0;
     max_col = 0;
@@ -54,8 +81,8 @@ int main(void)
         }
     }
     
-    printf("×î´óÔªËØÖµ£º%d\n", max_val);
-    printf("Î»ÖÃ£ºµÚ%dĞĞ£¬µÚ%dÁĞ\n", max_row + 1, max_col + 1);
+    printf("æœ€å¤§å…ƒç´ å€¼ï¼š%d\n", max_val);
+    printf("ä½ç½®ï¼šç¬¬%dè¡Œï¼Œç¬¬%dåˆ—\n", max_row + 1, max_col + 1);
     
     return 0;
 }
