@@ -4,11 +4,12 @@
 
 ## 目录
 
-| 路径 | 内容 |
+| 入口 | 内容 |
 | --- | --- |
-| [`ZZU_C_Experiment/`](./ZZU_C_Experiment) | C 源码，按实验编号分目录。`C_Experiment_1/1_1.c` 表示实验一第 1 题。 |
-| [`ZZU_C_result/`](./ZZU_C_result) | 历史编译产物。最新版 Windows 程序请见[下载版本包](#下载版本包)。 |
-| [`C语言实验.pdf`](./C语言实验.pdf) 和 [`C语言实验.docx`](./C语言实验.docx) | 实验资料。 |
+| [实验源码](./ZZU_C_Experiment/) | 按实验编号整理的 C 源码。例如 `C_Experiment_1/1_1.c` 是实验一第 1 题。 |
+| [Windows 程序下载](https://github.com/Bohese1379A/ZZU_C_practice/releases/latest) | 在最新发布页的 **Assets** 中下载文件名以 `-windows.zip` 结尾的压缩包。 |
+| [实验资料（PDF）](./C语言实验.pdf) · [实验资料（DOCX）](./C语言实验.docx) | 查看实验题目和要求。 |
+
 
 ## 从源码编译一道题
 
