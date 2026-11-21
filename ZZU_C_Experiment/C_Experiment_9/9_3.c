@@ -1,5 +1,5 @@
 /*
-ÊµÑé¾Å 3: ±àĞ´Ò»¸öº¯Êı¹ı³Ì£¬ÅĞ¶¨Ò»¸öÊıÊÇ·ñÎª"»ØÎÄÊı"¡£
+å®éªŒä¹ 3: ç¼–å†™ä¸€ä¸ªå‡½æ•°è¿‡ç¨‹ï¼Œåˆ¤å®šä¸€ä¸ªæ•°æ˜¯å¦ä¸º"å›æ–‡æ•°"ã€‚
 */
 #include <stdio.h>
 
@@ -24,13 +24,13 @@ int is_palindrome(int n)
 int main(void)
 {
     int num;
-    printf("ÇëÊäÈëÒ»¸öÕûÊı: ");
+    printf("è¯·è¾“å…¥ä¸€ä¸ªæ•´æ•°: ");
     scanf("%d", &num);
     
     if (is_palindrome(num))
-        printf("%d ÊÇ»ØÎÄÊı\n", num);
+        printf("%d æ˜¯å›æ–‡æ•°\n", num);
     else
-        printf("%d ²»ÊÇ»ØÎÄÊı\n", num);
+        printf("%d ä¸æ˜¯å›æ–‡æ•°\n", num);
     
     return 0;
 }

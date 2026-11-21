@@ -1,17 +1,17 @@
 /*
-ÊµÑé¾Å 9: ±àĞ´º¯Êı³ÌĞò£¬ÓÃÅ£¶Ùµü´ú·¨Çó·½³Ìx?+2x??x?+x+1=0ÔÚ0¸½½üµÄ½üËÆÖµ¡£
+å®éªŒä¹ 9: ç¼–å†™å‡½æ•°ç¨‹åºï¼Œç”¨ç‰›é¡¿è¿­ä»£æ³•æ±‚æ–¹ç¨‹x?+2x??x?+x+1=0åœ¨0é™„è¿‘çš„è¿‘ä¼¼å€¼ã€‚
 */
 #include <stdio.h>
 #include <math.h>
 
 double f(double x)
 {
-    return 2 * x * x * x + x + 1; // ¼ò»¯ºó£º2x? + x + 1
+    return 2 * x * x * x + x + 1; // ç®€åŒ–åï¼š2x? + x + 1
 }
 
 double f_prime(double x)
 {
-    return 6 * x * x + 1; // µ¼Êı£º6x? + 1
+    return 6 * x * x + 1; // å¯¼æ•°ï¼š6x? + 1
 }
 
 double newton_method(double initial, double tolerance, int max_iter)
@@ -38,7 +38,7 @@ int main(void)
     
     double root = newton_method(initial, tolerance, max_iter);
     
-    printf("·½³ÌÔÚ0¸½½üµÄ½üËÆ¸ù: %.6f\n", root);
+    printf("æ–¹ç¨‹åœ¨0é™„è¿‘çš„è¿‘ä¼¼æ ¹: %.6f\n", root);
     printf("f(root) = %.6e\n", f(root));
     
     return 0;

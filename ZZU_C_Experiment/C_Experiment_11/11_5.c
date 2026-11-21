@@ -1,5 +1,5 @@
 /*
-ÊµÑéÊ®Ò» 5: ÓÃÑ¡Ôñ·¨¶Ô10¸öÕûÊýÅÅÐò£¨½µÐò£©¡£
+å®žéªŒåä¸€ 5: ç”¨é€‰æ‹©æ³•å¯¹10ä¸ªæ•´æ•°æŽ’åºï¼ˆé™åºï¼‰ã€‚
 */
 #include <stdio.h>
 
@@ -28,13 +28,13 @@ int main(void)
 {
     int arr[SIZE];
     
-    printf("ÇëÊäÈë10¸öÕûÊý: ");
+    printf("è¯·è¾“å…¥10ä¸ªæ•´æ•°: ");
     for (int i = 0; i < SIZE; i++)
     {
         scanf("%d", &arr[i]);
     }
     
-    printf("ÅÅÐòÇ°: ");
+    printf("æŽ’åºå‰: ");
     for (int i = 0; i < SIZE; i++)
     {
         printf("%d ", arr[i]);
@@ -43,7 +43,7 @@ int main(void)
     
     selection_sort(arr, SIZE);
     
-    printf("ÅÅÐòºó(½µÐò): ");
+    printf("æŽ’åºåŽ(é™åº): ");
     for (int i = 0; i < SIZE; i++)
     {
         printf("%d ", arr[i]);

@@ -1,5 +1,5 @@
 /*
-ÊµÑé¾Å 7: ±àĞ´º¯Êı¹ı³Ì£¬ÇóÁ½¸öÕıÕûÊıµÄ×î´ó¹«Ô¼ÊıºÍ×îĞ¡¹«±¶Êı¡£
+å®éªŒä¹ 7: ç¼–å†™å‡½æ•°è¿‡ç¨‹ï¼Œæ±‚ä¸¤ä¸ªæ­£æ•´æ•°çš„æœ€å¤§å…¬çº¦æ•°å’Œæœ€å°å…¬å€æ•°ã€‚
 */
 #include <stdio.h>
 
@@ -22,20 +22,20 @@ int lcm(int a, int b)
 int main(void)
 {
     int a, b;
-    printf("ÇëÊäÈëÁ½¸öÕıÕûÊı: ");
+    printf("è¯·è¾“å…¥ä¸¤ä¸ªæ­£æ•´æ•°: ");
     scanf("%d %d", &a, &b);
     
     if (a <= 0 || b <= 0)
     {
-        printf("´íÎó£ºÇëÊäÈëÕıÕûÊı\n");
+        printf("é”™è¯¯ï¼šè¯·è¾“å…¥æ­£æ•´æ•°\n");
         return 1;
     }
     
     int greatest_common_divisor = gcd(a, b);
     int least_common_multiple = lcm(a, b);
     
-    printf("×î´ó¹«Ô¼Êı: %d\n", greatest_common_divisor);
-    printf("×îĞ¡¹«±¶Êı: %d\n", least_common_multiple);
+    printf("æœ€å¤§å…¬çº¦æ•°: %d\n", greatest_common_divisor);
+    printf("æœ€å°å…¬å€æ•°: %d\n", least_common_multiple);
     
     return 0;
 }

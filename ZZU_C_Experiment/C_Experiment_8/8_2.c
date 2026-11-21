@@ -1,5 +1,5 @@
 /*
-ÊµÑé°Ë 2: Êä³ön¡ÁnµÄÊý×Ö·½Õó¡£
+å®žéªŒå…« 2: è¾“å‡ºnÃ—nçš„æ•°å­—æ–¹é˜µã€‚
 */
 #include <stdio.h>
 
@@ -9,13 +9,13 @@ int main(void)
 {
     int n, matrix[MAX_SIZE][MAX_SIZE];
     
-    printf("ÇëÊäÈën (1-%d): ", MAX_SIZE);
+    printf("è¯·è¾“å…¥n (1-%d): ", MAX_SIZE);
     scanf("%d", &n);
     
     if (n > MAX_SIZE)
         n = MAX_SIZE;
     
-    // Ìî³äÊý×Ö·½Õó
+    // å¡«å……æ•°å­—æ–¹é˜µ
     int num = 1;
     for (int i = 0; i < n; i++)
     {
@@ -25,8 +25,8 @@ int main(void)
         }
     }
     
-    // Êä³ö½á¹û
-    printf("%d¡Á%dÊý×Ö·½Õó£º\n", n, n);
+    // è¾“å‡ºç»“æžœ
+    printf("%dÃ—%dæ•°å­—æ–¹é˜µï¼š\n", n, n);
     for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < n; j++)

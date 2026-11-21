@@ -1,5 +1,5 @@
 /*
-ÊµÑéÆß 8: ½«Ò»¸öÒ»Î¬Êı×é·´Ğò·ÅÖÃ¡£
+å®éªŒä¸ƒ 8: å°†ä¸€ä¸ªä¸€ç»´æ•°ç»„ååºæ”¾ç½®ã€‚
 */
 #include <stdio.h>
 
@@ -10,14 +10,14 @@ int main(void)
     int arr[ARRAY_SIZE] = {67, 89, 76, 98, 66};
     int temp;
     
-    printf("Ô­Ê¼Êı×é£º");
+    printf("åŸå§‹æ•°ç»„ï¼š");
     for (int i = 0; i < ARRAY_SIZE; i++)
     {
         printf("%d ", arr[i]);
     }
     printf("\n");
     
-    // ·´Ğò²Ù×÷
+    // ååºæ“ä½œ
     for (int i = 0, j = ARRAY_SIZE - 1; i < j; i++, j--)
     {
         temp = arr[i];
@@ -25,7 +25,7 @@ int main(void)
         arr[j] = temp;
     }
     
-    printf("·´Ğòºó£º");
+    printf("ååºåï¼š");
     for (int i = 0; i < ARRAY_SIZE; i++)
     {
         printf("%d ", arr[i]);

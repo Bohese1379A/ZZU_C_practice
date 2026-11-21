@@ -1,5 +1,5 @@
 /*
-ÊµÑé¾Å 1: ÀûÓÃº¯Êı¹ı³Ì¼ÆËã n!/(n!/(n-m)!) = (n-m)!
+å®éªŒä¹ 1: åˆ©ç”¨å‡½æ•°è¿‡ç¨‹è®¡ç®— n!/(n!/(n-m)!) = (n-m)!
 */
 #include <stdio.h>
 
@@ -20,12 +20,12 @@ long long factorial(int n)
 int main(void)
 {
     int n, m;
-    printf("ÇëÊäÈënºÍm: ");
+    printf("è¯·è¾“å…¥nå’Œm: ");
     scanf("%d %d", &n, &m);
     
     if (m > n)
     {
-        printf("´íÎó£ºm²»ÄÜ´óÓÚn\n");
+        printf("é”™è¯¯ï¼šmä¸èƒ½å¤§äºn\n");
         return 1;
     }
     

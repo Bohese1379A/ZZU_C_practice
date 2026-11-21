@@ -1,5 +1,5 @@
 /*
-ÊµÑéÊ®Ò» 3: ÀûÓÃÖ¸ÕëÍê³ÉÁ½¸ö±äÁ¿Öµ»¥»»¡£
+å®éªŒåä¸€ 3: åˆ©ç”¨æŒ‡é’ˆå®Œæˆä¸¤ä¸ªå˜é‡å€¼äº’æ¢ã€‚
 */
 #include <stdio.h>
 
@@ -13,14 +13,14 @@ void swap(int *a, int *b)
 int main(void)
 {
     int x, y;
-    printf("ÇëÊäÈëÁ½¸öÕûÊı: ");
+    printf("è¯·è¾“å…¥ä¸¤ä¸ªæ•´æ•°: ");
     scanf("%d %d", &x, &y);
     
-    printf("½»»»Ç°: x=%d, y=%d\n", x, y);
+    printf("äº¤æ¢å‰: x=%d, y=%d\n", x, y);
     
     swap(&x, &y);
     
-    printf("½»»»ºó: x=%d, y=%d\n", x, y);
+    printf("äº¤æ¢å: x=%d, y=%d\n", x, y);
     
     return 0;
 }
