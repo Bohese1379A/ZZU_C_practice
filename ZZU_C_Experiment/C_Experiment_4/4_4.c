@@ -1,22 +1,24 @@
-/*
-实验四 4: 输入不多于五位的正整数，求位数、输出每个数字并逆序输出。
-*/
+/* 实验四 4：显示正整数的位数、各位数字及其逆序。 */
 #include <stdio.h>
 #include <string.h>
+#include "../common/lab_input.h"
 
 int main(void)
 {
-    char s[16];
-    if (scanf("%15s", s) == 1)
-    {
-        int n = strlen(s);
-        printf("digits=%d\n", n);
-        for (int i = 0; i < n; i++)
-            printf("%c ", s[i]);
-        printf("\n");
-        for (int i = n - 1; i >= 0; i--)
-            putchar(s[i]);
-        putchar('\n');
+    char digits[6];
+    if (!lab_read_token(digits, sizeof digits) || digits[0] == '0' ||
+        digits[strspn(digits, "0123456789")] != '\0') {
+        fputs("Input error: expected a positive integer with at most five digits\n", stderr);
+        return 1;
     }
+
+    size_t length = strlen(digits);
+    printf("digits=%zu\n", length);
+    for (size_t i = 0; i < length; ++i)
+        printf("%s%c", i == 0 ? "" : " ", digits[i]);
+    putchar('\n');
+    for (size_t i = length; i > 0; --i)
+        putchar(digits[i - 1]);
+    putchar('\n');
     return 0;
 }

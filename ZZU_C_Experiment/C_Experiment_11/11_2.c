@@ -2,11 +2,15 @@
 实验十一 2: 输入n个单精度数存入一维数组，用指针变量处理数组元素的方式将其逆序存放后输出。
 */
 #include <stdio.h>
+#include "../common/lab_input.h"
 
 #define MAX_SIZE 20
 
 void reverse_array(float *arr, int n)
 {
+    if (n < 2)
+        return;
+
     float *start = arr;
     float *end = arr + n - 1;
 
@@ -26,15 +30,20 @@ int main(void)
     int n;
 
     printf("请输入n (不大于20): ");
-    scanf("%d", &n);
-
-    if (n > MAX_SIZE)
-        n = MAX_SIZE;
+    if (!lab_read_int(&n) || n < 1 || n > MAX_SIZE)
+    {
+        fputs("输入错误：数组长度必须在 1 到 20 之间。\n", stderr);
+        return 1;
+    }
 
     printf("请输入%d个单精度数: ", n);
     for (int i = 0; i < n; i++)
     {
-        scanf("%f", &arr[i]);
+        if (!lab_read_float(&arr[i]))
+        {
+            fputs("输入错误：需要指定数量的单精度数。\n", stderr);
+            return 1;
+        }
     }
 
     printf("原始数组: ");

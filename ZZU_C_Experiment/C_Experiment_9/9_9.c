@@ -1,45 +1,46 @@
-/*
-实验九 9: 编写函数程序，用牛顿迭代法求方程x?+2x??x?+x+1=0在0附近的近似值。
-*/
-#include <stdio.h>
+/* 实验九 9：用牛顿迭代求 x^5 + 2x^3 - x^2 + x + 1 = 0 在 0 附近的根。 */
 #include <math.h>
+#include <stdio.h>
 
-double f(double x)
+static double f(double x)
 {
-    return 2 * x * x * x + x + 1; // 简化后：2x? + x + 1
+    double x2 = x * x;
+    return x2 * x2 * x + 2 * x2 * x - x2 + x + 1;
 }
 
-double f_prime(double x)
+static double derivative(double x)
 {
-    return 6 * x * x + 1; // 导数：6x? + 1
+    double x2 = x * x;
+    return 5 * x2 * x2 + 6 * x2 - 2 * x + 1;
 }
 
-double newton_method(double initial, double tolerance, int max_iter)
+static int newton(double initial, double tolerance, int max_iterations, double *root)
 {
     double x = initial;
-    for (int i = 0; i < max_iter; i++)
-    {
-        double fx = f(x);
-        if (fabs(fx) < tolerance)
-            return x;
-        double fpx = f_prime(x);
-        if (fpx == 0)
-            break;
-        x = x - fx / fpx;
+    for (int i = 0; i <= max_iterations; ++i) {
+        double value = f(x);
+        if (!isfinite(value))
+            return 0;
+        if (fabs(value) <= tolerance) {
+            *root = x;
+            return 1;
+        }
+        double slope = derivative(x);
+        if (i == max_iterations || !isfinite(slope) || fabs(slope) <= 1e-12)
+            return 0;
+        x -= value / slope;
     }
-    return x;
+    return 0;
 }
 
 int main(void)
 {
-    double initial = 0.0;
-    double tolerance = 1e-6;
-    int max_iter = 100;
-
-    double root = newton_method(initial, tolerance, max_iter);
-
-    printf("方程在0附近的近似根: %.6f\n", root);
+    double root;
+    if (!newton(0.0, 1e-12, 100, &root)) {
+        fputs("牛顿迭代未收敛。\n", stderr);
+        return 1;
+    }
+    printf("近似根: %.10f\n", root);
     printf("f(root) = %.6e\n", f(root));
-
     return 0;
 }

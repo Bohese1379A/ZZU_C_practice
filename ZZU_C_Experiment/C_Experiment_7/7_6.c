@@ -2,6 +2,7 @@
 实验七 6: 求出n名学生某一门课程中的最高成绩、最低成绩和高于平均成绩的人数。
 */
 #include <stdio.h>
+#include "../common/lab_input.h"
 #define MAX_SIZE 100
 
 int main(void)
@@ -11,15 +12,20 @@ int main(void)
     double sum = 0, avg;
 
     printf("请输入学生人数n: ");
-    scanf("%d", &n);
-
-    if (n > MAX_SIZE)
-        n = MAX_SIZE;
+    if (!lab_read_int(&n) || n < 1 || n > MAX_SIZE)
+    {
+        fputs("输入错误：学生人数必须在 1 到 100 之间。\n", stderr);
+        return 1;
+    }
 
     printf("请输入%d个成绩：", n);
     for (int i = 0; i < n; i++)
     {
-        scanf("%d", &scores[i]);
+        if (!lab_read_int(&scores[i]) || scores[i] < 0 || scores[i] > 100)
+        {
+            fputs("输入错误：成绩应为 0 到 100 的整数。\n", stderr);
+            return 1;
+        }
         sum += scores[i];
     }
 

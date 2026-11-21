@@ -5,7 +5,7 @@
 
 int main(void)
 {
-    puts("What a beautiful campus !");
-    puts("I wish you every success !");
+    puts("What a beautiful campus!");
+    puts("I wish you every success!");
     return 0;
 }

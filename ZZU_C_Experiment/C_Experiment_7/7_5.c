@@ -2,6 +2,7 @@
 实验七 5: 随机产生n个[-10,10]范围内的随机数，删除数组中相同的数，只剩一个。
 */
 #include <stdio.h>
+#include "../common/lab_input.h"
 #include <stdlib.h>
 #include <time.h>
 
@@ -14,10 +15,11 @@ int main(void)
     int n, unique_count = 0;
 
     printf("请输入n: ");
-    scanf("%d", &n);
-
-    if (n > MAX_SIZE)
-        n = MAX_SIZE;
+    if (!lab_read_int(&n) || n < 1 || n > MAX_SIZE)
+    {
+        fputs("输入错误：元素个数必须在 1 到 100 之间。\n", stderr);
+        return 1;
+    }
 
     srand(time(NULL));
 

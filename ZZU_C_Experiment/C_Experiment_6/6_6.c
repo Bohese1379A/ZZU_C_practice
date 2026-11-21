@@ -9,7 +9,7 @@ int main(void)
         for (int y = 0; y <= 33; y++) // 母鸡
         {
             int z = 100 - x - y;
-            if (z >= 0 && (5 * x + 3 * y + z / 3.0) == 100 && z % 3 == 0)
+            if (z >= 0 && z % 3 == 0 && 5 * x + 3 * y + z / 3 == 100)
             {
                 printf("cock=%d hen=%d chick=%d\n", x, y, z);
             }

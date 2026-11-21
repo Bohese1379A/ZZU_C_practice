@@ -2,6 +2,7 @@
 实验八 4: 有一个m×n矩阵，各元素值由随机数产生，将矩阵增加一列，求每一行的元素值之和，并将和放入增加列。
 */
 #include <stdio.h>
+#include "../common/lab_input.h"
 #include <stdlib.h>
 #include <time.h>
 
@@ -14,12 +15,17 @@ int main(void)
     int matrix[MAX_ROWS][MAX_COLS + 1]; // 额外一列存放和
 
     printf("请输入行数m: ");
-    scanf("%d", &m);
+    if (!lab_read_int(&m) || m < 1 || m > MAX_ROWS)
+    {
+        fputs("输入错误：行数必须在 1 到 10 之间。\n", stderr);
+        return 1;
+    }
     printf("请输入列数n: ");
-    scanf("%d", &n);
-
-    if (m > MAX_ROWS) m = MAX_ROWS;
-    if (n > MAX_COLS) n = MAX_COLS;
+    if (!lab_read_int(&n) || n < 1 || n > MAX_COLS)
+    {
+        fputs("输入错误：列数必须在 1 到 10 之间。\n", stderr);
+        return 1;
+    }
 
     srand(time(NULL));
 

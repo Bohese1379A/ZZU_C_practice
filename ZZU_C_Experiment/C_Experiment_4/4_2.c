@@ -5,24 +5,25 @@
  y = 3x-11 (x>=10)
 */
 #include <stdio.h>
+#include "../common/lab_input.h"
 
 int main(void)
 {
-    double x;
-    if (scanf("%lf", &x) == 1)
+    int x;
+    if (lab_read_int(&x))
     {
         double y;
         if (x < 1)
             y = x;
         else if (x < 10)
-            y = 2 * x - 1;
+            y = 2.0 * x - 1;
         else
-            y = 3 * x - 11;
+            y = 3.0 * x - 11;
         printf("%.6f\n", y);
     }
     else
     {
-        fprintf(stderr, "Input error: expected a number\n");
+        fprintf(stderr, "Input error: expected an integer\n");
         return 1;
     }
     return 0;

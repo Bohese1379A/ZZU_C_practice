@@ -24,18 +24,15 @@ long long sum_fibonacci(int n)
 int main(void)
 {
     int n = 20;
-    long long sum = 0;
-
     printf("斐波那契数列前20项：\n");
     for (int i = 1; i <= n; i++)
     {
         long long term = fibonacci(i);
         printf("%lld ", term);
-        sum += term;
     }
     printf("\n");
 
-    printf("前20项的和: %lld\n", sum);
+    printf("前20项的和: %lld\n", sum_fibonacci(n));
 
     return 0;
 }

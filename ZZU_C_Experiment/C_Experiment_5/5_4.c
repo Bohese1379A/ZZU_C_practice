@@ -11,12 +11,15 @@ int main(void)
     {
         int ch = getchar();
         if (ch == EOF)
-            break;
+        {
+            fputs("Input error: expected 30 characters\n", stderr);
+            return 1;
+        }
         if (isdigit(ch))
             digits++;
         else if (isalpha(ch))
             letters++;
-        else if (ch != '\n' && ch != '\r')
+        else
             others++;
     }
     printf("digits=%d letters=%d others=%d\n", digits, letters, others);

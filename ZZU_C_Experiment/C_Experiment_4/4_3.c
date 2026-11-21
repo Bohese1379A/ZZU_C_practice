@@ -2,11 +2,12 @@
 实验四 3：将百分制成绩转换为 A、B、C、D、E 等级。
 */
 #include <stdio.h>
+#include "../common/lab_input.h"
 
 int main(void)
 {
     int score;
-    if (scanf("%d", &score) == 1)
+    if (lab_read_int(&score) && score >= 0 && score <= 100)
     {
         char grade;
         if (score >= 90)
@@ -23,7 +24,7 @@ int main(void)
     }
     else
     {
-        fprintf(stderr, "Input error: expected an integer score\n");
+        fprintf(stderr, "Input error: expected an integer score from 0 to 100\n");
         return 1;
     }
     return 0;

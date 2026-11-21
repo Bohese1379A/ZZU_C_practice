@@ -2,6 +2,7 @@
 实验十一 5: 用选择法对10个整数排序（降序）。
 */
 #include <stdio.h>
+#include "../common/lab_input.h"
 
 #define SIZE 10
 
@@ -31,7 +32,11 @@ int main(void)
     printf("请输入10个整数: ");
     for (int i = 0; i < SIZE; i++)
     {
-        scanf("%d", &arr[i]);
+        if (!lab_read_int(&arr[i]))
+        {
+            fputs("输入错误：需要 10 个整数。\n", stderr);
+            return 1;
+        }
     }
 
     printf("排序前: ");

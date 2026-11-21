@@ -1,29 +1,24 @@
-/*
-实验九 6: 编写一个函数过程，求任意字符串CH中数字字符的个数。
-*/
-#include <stdio.h>
+/* 实验九 6：统计一行文字里的 ASCII 数字字符。 */
 #include <ctype.h>
+#include <stdio.h>
+#include "../common/lab_input.h"
 
-int count_digits(const char *ch)
+static size_t count_digits(const char *text)
 {
-    int count = 0;
-    while (*ch)
-    {
-        if (isdigit(*ch))
-            count++;
-        ch++;
-    }
+    size_t count = 0;
+    for (; *text; ++text)
+        if (isdigit((unsigned char)*text))
+            ++count;
     return count;
 }
 
 int main(void)
 {
-    char ch[100];
-    printf("请输入一个字符串: ");
-    scanf("%s", ch);
-
-    int result = count_digits(ch);
-    printf("数字字符的个数: %d\n", result);
-
+    char text[1024];
+    if (!lab_read_line(text, sizeof text)) {
+        fputs("输入错误：需要一行不超过 1023 字节的文本。\n", stderr);
+        return 1;
+    }
+    printf("数字字符的个数: %zu\n", count_digits(text));
     return 0;
 }

@@ -1,8 +1,8 @@
 /*
-实验九 10: 编写函数程序，计算正整数n1?n2之间所有素数之和。
+实验九 10: 编写函数程序，计算正整数 n1 到 n2之间所有素数之和。
 */
 #include <stdio.h>
-#include <math.h>
+#include "../common/lab_input.h"
 
 int is_prime(int n)
 {
@@ -12,7 +12,7 @@ int is_prime(int n)
         return 1;
     if (n % 2 == 0)
         return 0;
-    for (int i = 3; i <= sqrt(n); i += 2)
+    for (int i = 3; i <= n / i; i += 2)
     {
         if (n % i == 0)
             return 0;
@@ -23,10 +23,12 @@ int is_prime(int n)
 long long sum_primes(int n1, int n2)
 {
     long long sum = 0;
-    for (int i = n1; i <= n2; i++)
+    for (int i = n1; ; ++i)
     {
         if (is_prime(i))
             sum += i;
+        if (i == n2)
+            break;
     }
     return sum;
 }
@@ -35,7 +37,11 @@ int main(void)
 {
     int n1, n2;
     printf("请输入n1和n2: ");
-    scanf("%d %d", &n1, &n2);
+    if (!lab_read_int(&n1) || !lab_read_int(&n2) || n1 < 1 || n2 < 1)
+    {
+        fputs("输入错误：需要两个正整数。\n", stderr);
+        return 1;
+    }
 
     if (n1 > n2)
     {

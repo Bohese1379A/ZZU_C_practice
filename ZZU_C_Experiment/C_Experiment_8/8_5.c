@@ -2,6 +2,7 @@
 实验八 5: 有一个m×n矩阵，找出最大元素值及最大元素所在的行、列位置。
 */
 #include <stdio.h>
+#include "../common/lab_input.h"
 #include <stdlib.h>
 #include <time.h>
 
@@ -15,12 +16,17 @@ int main(void)
     int max_val, max_row, max_col;
 
     printf("请输入行数m: ");
-    scanf("%d", &m);
+    if (!lab_read_int(&m) || m < 1 || m > MAX_ROWS)
+    {
+        fputs("输入错误：行数必须在 1 到 10 之间。\n", stderr);
+        return 1;
+    }
     printf("请输入列数n: ");
-    scanf("%d", &n);
-
-    if (m > MAX_ROWS) m = MAX_ROWS;
-    if (n > MAX_COLS) n = MAX_COLS;
+    if (!lab_read_int(&n) || n < 1 || n > MAX_COLS)
+    {
+        fputs("输入错误：列数必须在 1 到 10 之间。\n", stderr);
+        return 1;
+    }
 
     srand(time(NULL));
 

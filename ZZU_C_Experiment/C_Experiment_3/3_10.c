@@ -1,21 +1,20 @@
-/*
-实验三 10: 用 getchar() 分别输入 'A','B','C' 并转换为小写输出。
-*/
-#include <stdio.h>
+/* 实验三 10：用 getchar 读取三个字母，用 putchar 输出其小写形式。 */
 #include <ctype.h>
+#include <stdio.h>
 
 int main(void)
 {
-    int a = getchar();
-    int b = getchar();
-    int c = getchar();
-    if (a == EOF || b == EOF || c == EOF)
-        return 0;
-    putchar(tolower(a));
-    putchar('\n');
-    putchar(tolower(b));
-    putchar('\n');
-    putchar(tolower(c));
-    putchar('\n');
+    for (int i = 0; i < 3; ++i) {
+        int ch;
+        do {
+            ch = getchar();
+        } while (ch != EOF && isspace(ch));
+        if (ch == EOF || !isalpha(ch)) {
+            fputs("Input error: expected three letters\n", stderr);
+            return 1;
+        }
+        putchar(tolower(ch));
+        putchar('\n');
+    }
     return 0;
 }

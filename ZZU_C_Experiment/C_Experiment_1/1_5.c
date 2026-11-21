@@ -2,13 +2,14 @@
 实验一 5：输入圆的半径，求面积和周长。
 */
 #include <stdio.h>
+#include "../common/lab_input.h"
 #include <math.h>
 #define PI 3.14159265358979323846
 
 int main(void)
 {
     double r;
-    if (scanf("%lf", &r) == 1)
+    if (lab_read_double(&r))
     {
         if (r < 0)
         {

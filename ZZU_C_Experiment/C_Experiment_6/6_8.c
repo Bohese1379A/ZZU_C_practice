@@ -5,9 +5,9 @@
 
 int main(void)
 {
-    for (int x = 0; x <= 9; x++)
+    for (int x = 1; x <= 9; x++)
     {
-        for (int y = 0; y <= 9; y++)
+        for (int y = 1; y <= 9; y++)
         {
             for (int z = 0; z <= 9; z++)
             {

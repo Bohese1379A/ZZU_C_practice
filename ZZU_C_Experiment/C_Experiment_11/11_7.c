@@ -1,27 +1,22 @@
-/*
-实验十一 7: 编写一个程序计算一个字符串的长度。
-*/
+/* 实验十一 7：通过移动指针统计 C 字符串的字节长度。 */
 #include <stdio.h>
+#include "../common/lab_input.h"
 
-int string_length(const char *str)
+static size_t string_length(const char *text)
 {
-    int length = 0;
-    while (*str)
-    {
-        length++;
-        str++;
-    }
-    return length;
+    const char *start = text;
+    while (*text)
+        ++text;
+    return (size_t)(text - start);
 }
 
 int main(void)
 {
-    char str[100];
-    printf("请输入一个字符串: ");
-    scanf("%s", str);
-
-    int len = string_length(str);
-    printf("字符串长度: %d\n", len);
-
+    char text[1024];
+    if (!lab_read_line(text, sizeof text)) {
+        fputs("输入错误：需要一行不超过 1023 字节的文本。\n", stderr);
+        return 1;
+    }
+    printf("字符串长度: %zu\n", string_length(text));
     return 0;
 }

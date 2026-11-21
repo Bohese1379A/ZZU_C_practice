@@ -1,25 +1,20 @@
-/*
-实验二 2：输入整数 a、b，求积、商和余数。
-*/
+/* 实验二 2：输入两个整数，计算积、商和余数。 */
 #include <stdio.h>
+#include "../common/lab_input.h"
 
 int main(void)
 {
-    long a, b;
-    if (scanf("%ld %ld", &a, &b) == 2)
-    {
-        printf("prod=%ld\n", a * b);
-        if (b != 0)
-        {
-            printf("quot=%ld remainder=%ld\n", a / b, a % b);
-        }
-        else
-            printf("division by zero\n");
-    }
-    else
-    {
-        fprintf(stderr, "Input error: expected two integers\n");
+    int first, second;
+    if (!lab_read_int(&first) || !lab_read_int(&second)) {
+        fputs("Input error: expected two integers\n", stderr);
         return 1;
     }
+
+    long long a = first, b = second;
+    printf("prod=%lld\n", a * b);
+    if (b == 0)
+        puts("division by zero");
+    else
+        printf("quot=%lld remainder=%lld\n", a / b, a % b);
     return 0;
 }

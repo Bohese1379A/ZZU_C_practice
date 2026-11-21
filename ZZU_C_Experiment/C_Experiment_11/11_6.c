@@ -1,26 +1,15 @@
-/*
-实验十一 6: 从键盘输入一串符号（以回车键结束），将其以字符串形式存入一维字符数组，然后再输出该字符串。
-*/
+/* 实验十一 6：读取以回车结束的字符串并原样输出。 */
 #include <stdio.h>
-
-#define MAX_SIZE 100
+#include "../common/lab_input.h"
 
 int main(void)
 {
-    char str[MAX_SIZE];
-    int i = 0;
-    char ch;
-
-    printf("请输入一串符号（以回车键结束）: ");
-
-    while ((ch = getchar()) != '\n' && i < MAX_SIZE - 1)
-    {
-        str[i] = ch;
-        i++;
+    char text[1024];
+    printf("请输入一行文字：");
+    if (!lab_read_line(text, sizeof text)) {
+        fputs("输入错误：需要一行不超过 1023 字节的文本。\n", stderr);
+        return 1;
     }
-    str[i] = '\0'; // 字符串结束符
-
-    printf("输入的字符串: %s\n", str);
-
+    printf("输入的字符串: %s\n", text);
     return 0;
 }

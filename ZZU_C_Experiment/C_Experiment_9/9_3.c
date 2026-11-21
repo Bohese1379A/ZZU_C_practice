@@ -2,6 +2,7 @@
 实验九 3: 编写一个函数过程，判定一个数是否为"回文数"。
 */
 #include <stdio.h>
+#include "../common/lab_input.h"
 
 int is_palindrome(int n)
 {
@@ -9,7 +10,7 @@ int is_palindrome(int n)
         return 0;
 
     int original = n;
-    int reversed = 0;
+    long long reversed = 0;
 
     while (n > 0)
     {
@@ -25,7 +26,11 @@ int main(void)
 {
     int num;
     printf("请输入一个整数: ");
-    scanf("%d", &num);
+    if (!lab_read_int(&num))
+    {
+        fputs("输入错误：请输入一个整数。\n", stderr);
+        return 1;
+    }
 
     if (is_palindrome(num))
         printf("%d 是回文数\n", num);
